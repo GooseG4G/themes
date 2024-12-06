@@ -2,14 +2,15 @@ import shutil
 import pathlib
 
 # Определение базового пути относительно расположения текущего файла скрипта
-BASE_PATH = pathlib.Path(__file__).parents[1].absolute()
+BASE = pathlib.Path(__file__).parents[1].absolute()
+HOME = pathlib.Path.home() / "AppData" / "Local" / "Goose Apps"
 
 # Путь к папке ico
-ICO_PATH = BASE_PATH / "ico"
+GAPP = HOME / "Themes"
 
 # Удаление папки ico с использованием shutil.rmtree
-if ICO_PATH.exists() and ICO_PATH.is_dir():
-    shutil.rmtree(ICO_PATH)
-    print(f"Folder '{ICO_PATH}' has been removed.")
+if GAPP.exists() and GAPP.is_dir():
+    shutil.rmtree(GAPP)
+    print(f"'{GAPP}' has been removed.")
 else:
-    print(f"Folder '{ICO_PATH}' does not exist.")
+    print(f"'{GAPP}' does not exist.")
